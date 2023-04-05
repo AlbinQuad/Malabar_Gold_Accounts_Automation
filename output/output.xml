@@ -1,0 +1,2065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on win32)" generated="20230405 14:03:24.903" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="D:\Project\Malabar_POC\Malabar_Gold_Accounts_Automation\tasks.robot">
+<kw name="Reading Configdata Sheet" library="excelOperations" type="SETUP">
+<kw name="Open Workbook" library="RPA.Excel.Files">
+<arg>${CONFIG_SHEET_LOC}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<msg timestamp="20230405 14:03:46.808" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020FA1E50BE0&gt;</msg>
+<status status="PASS" starttime="20230405 14:03:46.565" endtime="20230405 14:03:46.808"/>
+</kw>
+<kw name="Read Worksheet As Table" library="RPA.Excel.Files">
+<var>${data}</var>
+<arg>Config_Sheet</arg>
+<arg>${True}</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<msg timestamp="20230405 14:03:46.808" level="INFO">Created table: Table(columns=['Name', 'Value'], rows=6)</msg>
+<msg timestamp="20230405 14:03:46.808" level="INFO">${data} = Table(columns=['Name', 'Value'], rows=6)</msg>
+<status status="PASS" starttime="20230405 14:03:46.808" endtime="20230405 14:03:46.808"/>
+</kw>
+<kw name="Close Workbook" library="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<msg timestamp="20230405 14:03:46.808" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020FA1E50BE0&gt;</msg>
+<status status="PASS" starttime="20230405 14:03:46.808" endtime="20230405 14:03:46.808"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{data}</value>
+<iter>
+<var name="${row}">{'Name': 'Portal Url', 'Value': 'https://m365-perf.sandbox.operations.dynamics.com/?t=2021-05-12T10%3A54%3A29.9399878Z&amp;cmp=MGPL&amp;mi=BatchJob'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.808" endtime="20230405 14:03:46.812"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.808" endtime="20230405 14:03:46.812"/>
+</iter>
+<iter>
+<var name="${row}">{'Name': 'User Name', 'Value': 'v_mafna@malabargroup.com'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.812" endtime="20230405 14:03:46.818"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.812" endtime="20230405 14:03:46.818"/>
+</iter>
+<iter>
+<var name="${row}">{'Name': 'Password', 'Value': 'Malabar@916'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.818" endtime="20230405 14:03:46.818"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.818" endtime="20230405 14:03:46.818"/>
+</iter>
+<iter>
+<var name="${row}">{'Name': 'Browser', 'Value': 'chrome'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.818" endtime="20230405 14:03:46.828"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.818" endtime="20230405 14:03:46.828"/>
+</iter>
+<iter>
+<var name="${row}">{'Name': 'Email', 'Value': 'mafna.janeefar@quadance.com'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.829" endtime="20230405 14:03:46.829"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.828" endtime="20230405 14:03:46.829"/>
+</iter>
+<iter>
+<var name="${row}">{'Name': 'Legal Entity', 'Value': 'BGJP'}</var>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${config_datas}</arg>
+<arg>${row['Name']}</arg>
+<arg>${row['Value']}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230405 14:03:46.829" endtime="20230405 14:03:46.829"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.829" endtime="20230405 14:03:46.829"/>
+</iter>
+<status status="PASS" starttime="20230405 14:03:46.808" endtime="20230405 14:03:46.829"/>
+</for>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${config}</arg>
+<arg>${config_datas}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230405 14:03:46.838" level="INFO">${config} = {'Portal Url': 'https://m365-perf.sandbox.operations.dynamics.com/?t=2021-05-12T10%3A54%3A29.9399878Z&amp;cmp=MGPL&amp;mi=BatchJob', 'User Name': 'v_mafna@malabargroup.com', 'Password': 'Malabar@916', 'Browse...</msg>
+<status status="PASS" starttime="20230405 14:03:46.829" endtime="20230405 14:03:46.838"/>
+</kw>
+<kw name="Open Workbook" library="RPA.Excel.Files">
+<arg>${INVOICE_DETAILS_SHEET_LOC}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<msg timestamp="20230405 14:03:46.879" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020FA208C2B0&gt;</msg>
+<status status="PASS" starttime="20230405 14:03:46.838" endtime="20230405 14:03:46.879"/>
+</kw>
+<kw name="Read Worksheet As Table" library="RPA.Excel.Files">
+<var>${inv_data}</var>
+<arg>Invoice_Sheet</arg>
+<arg>${True}</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<msg timestamp="20230405 14:03:46.879" level="INFO">Created table: Table(columns=['Journal No', 'Account', 'Invoice Date', 'Invoice Number', 'TDS Value', 'Description', 'Credit Amount', 'Main Account', 'Legal Entity', 'Cost Center', 'Location', 'Sub Location', 'HSN Code', 'GST Amount', 'Percent', 'Amount Origin', 'Withhold Tax Amount', 'Run Status', 'Remark', 'GST Validation Message', 'Withhold Tax Validation Message'], rows=4)</msg>
+<msg timestamp="20230405 14:03:46.879" level="INFO">${inv_data} = Table(columns=['Journal No', 'Account', 'Invoice Date', 'Invoice Number', 'TDS Value', 'Description', 'Credit Amount', 'Main Account', 'Legal Entity', 'Cost Center', 'Location', 'Sub Location', 'HSN C...</msg>
+<status status="PASS" starttime="20230405 14:03:46.879" endtime="20230405 14:03:46.879"/>
+</kw>
+<kw name="Close Workbook" library="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<msg timestamp="20230405 14:03:46.879" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000020FA208C2B0&gt;</msg>
+<status status="PASS" starttime="20230405 14:03:46.879" endtime="20230405 14:03:46.879"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${invoice_details}</arg>
+<arg>${inv_data}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230405 14:03:46.889" level="INFO">${invoice_details} = Table(columns=['Journal No', 'Account', 'Invoice Date', 'Invoice Number', 'TDS Value', 'Description', 'Credit Amount', 'Main Account', 'Legal Entity', 'Cost Center', 'Location', 'Sub Location', 'HSN C...</msg>
+<status status="PASS" starttime="20230405 14:03:46.879" endtime="20230405 14:03:46.889"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.565" endtime="20230405 14:03:46.889"/>
+</kw>
+<test id="s1-t1" name="Invoice Journal Creation" line="14">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3x</arg>
+<arg>5s</arg>
+<arg>Launch &amp; Login m365 portal</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Launch &amp; Login m365 portal" library="login">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Open Available Browser</arg>
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230405 14:03:46.894" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:03:47.020" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230405 14:03:52.409" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:04:00.582" level="INFO">Created chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230405 14:04:00.582" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230405 14:04:00.582" level="INFO">Opening url 'https://m365-perf.sandbox.operations.dynamics.com/?t=2021-05-12T10%3A54%3A29.9399878Z&amp;cmp=MGPL&amp;mi=BatchJob'</msg>
+<status status="PASS" starttime="20230405 14:03:46.894" endtime="20230405 14:04:03.180"/>
+</kw>
+<status status="PASS" starttime="20230405 14:03:46.894" endtime="20230405 14:04:03.180"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230405 14:04:03.180" endtime="20230405 14:04:03.441"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230405 14:04:05.444" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230405 14:04:03.442" endtime="20230405 14:04:05.463"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_present}</var>
+<arg>${el_username}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:05.748" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:05.751" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:05.463" endtime="20230405 14:04:06.430"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_username}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.435" endtime="20230405 14:04:06.445"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.430" endtime="20230405 14:04:06.445"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.430" endtime="20230405 14:04:06.445"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_field_present}</var>
+<arg>${el_username_field}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.445" endtime="20230405 14:04:06.445"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_field_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_username_field}</arg>
+<arg>${config}[User Name]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.445" endtime="20230405 14:04:06.449"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.445" endtime="20230405 14:04:06.449"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${next_btn_present}</var>
+<arg>${el_next_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</kw>
+<if>
+<branch type="IF" condition="'${next_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_next_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_pwd_present}</var>
+<arg>${el_password}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.449"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_pwd_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_password}</arg>
+<arg>${config}[Password]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.453" endtime="20230405 14:04:06.453"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.453" endtime="20230405 14:04:06.453"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.449" endtime="20230405 14:04:06.453"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${signin_btn_present}</var>
+<arg>${el_signin_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.453" endtime="20230405 14:04:06.457"/>
+</kw>
+<if>
+<branch type="IF" condition="'${signin_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_signin_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.457" endtime="20230405 14:04:06.457"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.457" endtime="20230405 14:04:06.457"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.457" endtime="20230405 14:04:06.457"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.457" endtime="20230405 14:04:06.457"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${yes_btn_present}</var>
+<arg>${el_yes_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.457" endtime="20230405 14:04:06.460"/>
+</kw>
+<if>
+<branch type="IF" condition="'${yes_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_yes_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:06.460" endtime="20230405 14:04:06.460"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:06.460" endtime="20230405 14:04:06.460"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:06.460" endtime="20230405 14:04:06.460"/>
+</if>
+<status status="FAIL" starttime="20230405 14:03:46.894" endtime="20230405 14:04:06.461"/>
+</kw>
+<kw name="Launch &amp; Login m365 portal" library="login">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Open Available Browser</arg>
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230405 14:04:11.480" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:04:11.570" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230405 14:04:17.736" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:04:25.719" level="INFO">Created chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230405 14:04:25.719" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230405 14:04:25.719" level="INFO">Opening url 'https://m365-perf.sandbox.operations.dynamics.com/?t=2021-05-12T10%3A54%3A29.9399878Z&amp;cmp=MGPL&amp;mi=BatchJob'</msg>
+<status status="PASS" starttime="20230405 14:04:11.468" endtime="20230405 14:04:28.709"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:11.468" endtime="20230405 14:04:28.709"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230405 14:04:28.709" endtime="20230405 14:04:28.876"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230405 14:04:30.889" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230405 14:04:28.877" endtime="20230405 14:04:30.889"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_present}</var>
+<arg>${el_username}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:30.906" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:30.908" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:30.890" endtime="20230405 14:04:30.909"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_username}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:30.910" endtime="20230405 14:04:30.910"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:30.910" endtime="20230405 14:04:30.910"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:30.909" endtime="20230405 14:04:30.910"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_field_present}</var>
+<arg>${el_username_field}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:30.911" endtime="20230405 14:04:30.911"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_field_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_username_field}</arg>
+<arg>${config}[User Name]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:30.912" endtime="20230405 14:04:30.912"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:30.911" endtime="20230405 14:04:31.001"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:30.911" endtime="20230405 14:04:31.001"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${next_btn_present}</var>
+<arg>${el_next_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.001" endtime="20230405 14:04:31.001"/>
+</kw>
+<if>
+<branch type="IF" condition="'${next_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_next_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.001" endtime="20230405 14:04:31.001"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:31.001" endtime="20230405 14:04:31.001"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:31.001" endtime="20230405 14:04:31.001"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.001" endtime="20230405 14:04:31.001"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_pwd_present}</var>
+<arg>${el_password}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.010" endtime="20230405 14:04:31.010"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_pwd_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_password}</arg>
+<arg>${config}[Password]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.010" endtime="20230405 14:04:31.010"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:31.010" endtime="20230405 14:04:31.010"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:31.010" endtime="20230405 14:04:31.010"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${signin_btn_present}</var>
+<arg>${el_signin_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</kw>
+<if>
+<branch type="IF" condition="'${signin_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_signin_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${yes_btn_present}</var>
+<arg>${el_yes_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.011"/>
+</kw>
+<if>
+<branch type="IF" condition="'${yes_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_yes_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:31.014" endtime="20230405 14:04:31.014"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.014"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:31.011" endtime="20230405 14:04:31.014"/>
+</if>
+<status status="FAIL" starttime="20230405 14:04:11.468" endtime="20230405 14:04:31.015"/>
+</kw>
+<kw name="Launch &amp; Login m365 portal" library="login">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Open Available Browser</arg>
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${config}[Portal Url]</arg>
+<arg>browser_selection=${config}[Browser]</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230405 14:04:36.017" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:04:36.028" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230405 14:04:41.325" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230405 14:04:44.631" level="INFO">Created chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230405 14:04:44.631" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230405 14:04:44.631" level="INFO">Opening url 'https://m365-perf.sandbox.operations.dynamics.com/?t=2021-05-12T10%3A54%3A29.9399878Z&amp;cmp=MGPL&amp;mi=BatchJob'</msg>
+<status status="PASS" starttime="20230405 14:04:36.017" endtime="20230405 14:04:47.639"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:36.017" endtime="20230405 14:04:47.639"/>
+</kw>
+<kw name="Maximize Browser Window" library="RPA.Browser.Selenium">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230405 14:04:47.639" endtime="20230405 14:04:48.087"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230405 14:04:50.102" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230405 14:04:48.087" endtime="20230405 14:04:50.102"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_present}</var>
+<arg>${el_username}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:50.125" level="INFO" html="true">Ran with keyword &lt;b&gt;Element Should Be Visible&lt;/b&gt; which returned error: &lt;i&gt;Element with locator '//div[@data-test-id="v_mafna@malabargroup.com"]' not found.&lt;/i&gt;</msg>
+<msg timestamp="20230405 14:04:50.125" level="INFO">${login_username_present} = False</msg>
+<status status="PASS" starttime="20230405 14:04:50.104" endtime="20230405 14:04:50.125"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_username}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:50.127" endtime="20230405 14:04:50.127"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:50.127" endtime="20230405 14:04:50.127"/>
+</branch>
+<status status="PASS" starttime="20230405 14:04:50.125" endtime="20230405 14:04:50.127"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_username_field_present}</var>
+<arg>${el_username_field}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:50.736" level="INFO">Element '//input[@type="email" and @name="loginfmt"]' is displayed.</msg>
+<msg timestamp="20230405 14:04:50.738" level="INFO">${login_username_field_present} = True</msg>
+<status status="PASS" starttime="20230405 14:04:50.613" endtime="20230405 14:04:50.738"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_username_field_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_username_field}</arg>
+<arg>${config}[User Name]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Input Text" library="RPA.Browser.Selenium">
+<arg>${el_username_field}</arg>
+<arg>${config}[User Name]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230405 14:04:50.740" level="INFO">Typing text 'v_mafna@malabargroup.com' into text field '//input[@type="email" and @name="loginfmt"]'.</msg>
+<status status="PASS" starttime="20230405 14:04:50.740" endtime="20230405 14:04:50.959"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:50.740" endtime="20230405 14:04:50.959"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:50.739" endtime="20230405 14:04:50.959"/>
+</branch>
+<status status="PASS" starttime="20230405 14:04:50.738" endtime="20230405 14:04:50.959"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${next_btn_present}</var>
+<arg>${el_next_btn}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:51.002" level="INFO">Element '//input[@value="Next"]' is displayed.</msg>
+<msg timestamp="20230405 14:04:51.002" level="INFO">${next_btn_present} = True</msg>
+<status status="PASS" starttime="20230405 14:04:50.959" endtime="20230405 14:04:51.002"/>
+</kw>
+<if>
+<branch type="IF" condition="'${next_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_next_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_next_btn}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:04:51.002" level="INFO">Clicking element '//input[@value="Next"]'.</msg>
+<status status="PASS" starttime="20230405 14:04:51.002" endtime="20230405 14:04:51.104"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:51.002" endtime="20230405 14:04:51.105"/>
+</kw>
+<status status="PASS" starttime="20230405 14:04:51.002" endtime="20230405 14:04:51.105"/>
+</branch>
+<status status="PASS" starttime="20230405 14:04:51.002" endtime="20230405 14:04:51.105"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230405 14:04:53.108" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230405 14:04:51.105" endtime="20230405 14:04:53.109"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${login_pwd_present}</var>
+<arg>${el_password}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:53.119" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.121" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:53.110" endtime="20230405 14:04:53.122"/>
+</kw>
+<if>
+<branch type="IF" condition="'${login_pwd_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Input Text</arg>
+<arg>${el_password}</arg>
+<arg>${config}[Password]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.123" endtime="20230405 14:04:53.123"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:53.123" endtime="20230405 14:04:53.124"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:53.123" endtime="20230405 14:04:53.124"/>
+</if>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${signin_btn_present}</var>
+<arg>${el_signin_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.124" endtime="20230405 14:04:53.124"/>
+</kw>
+<if>
+<branch type="IF" condition="'${signin_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_signin_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.125" endtime="20230405 14:04:53.126"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:53.124" endtime="20230405 14:04:53.126"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:53.124" endtime="20230405 14:04:53.126"/>
+</if>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.126" endtime="20230405 14:04:53.127"/>
+</kw>
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${yes_btn_present}</var>
+<arg>${el_yes_btn}</arg>
+<doc>Is element visible</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.127" endtime="20230405 14:04:53.127"/>
+</kw>
+<if>
+<branch type="IF" condition="'${yes_btn_present}'=='True'">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_yes_btn}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20230405 14:04:53.128" endtime="20230405 14:04:53.128"/>
+</kw>
+<status status="NOT RUN" starttime="20230405 14:04:53.127" endtime="20230405 14:04:53.128"/>
+</branch>
+<status status="NOT RUN" starttime="20230405 14:04:53.127" endtime="20230405 14:04:53.128"/>
+</if>
+<status status="FAIL" starttime="20230405 14:04:36.016" endtime="20230405 14:04:53.129"/>
+</kw>
+<msg timestamp="20230405 14:04:53.130" level="FAIL">Keyword 'Launch &amp; Login m365 portal' failed after retrying 3 times. The last error was: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:03:46.894" endtime="20230405 14:04:53.551"/>
+</kw>
+<kw name="Select Legal Entity" library="invoiceJournalCreation">
+<status status="NOT RUN" starttime="20230405 14:04:53.553" endtime="20230405 14:04:53.553"/>
+</kw>
+<kw name="Select Invoice Journal Menu" library="invoiceJournalCreation">
+<status status="NOT RUN" starttime="20230405 14:04:53.553" endtime="20230405 14:04:53.553"/>
+</kw>
+<kw name="Invoice Journal Creation Process" library="invoiceJournalCreation">
+<status status="NOT RUN" starttime="20230405 14:04:53.553" endtime="20230405 14:04:53.553"/>
+</kw>
+<status status="FAIL" starttime="20230405 14:03:46.892" endtime="20230405 14:04:53.553">Keyword 'Launch &amp; Login m365 portal' failed after retrying 3 times. The last error was: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</status>
+</test>
+<kw name="Logout Portal" library="invoiceJournalCreation" type="TEARDOWN">
+<kw name="Is Element Visible" library="RPA.Browser.Selenium">
+<var>${msg_details_present}</var>
+<arg>${el_user_button}</arg>
+<doc>Is element visible</doc>
+<msg timestamp="20230405 14:04:53.565" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.566" level="INFO">${msg_details_present} = None</msg>
+<msg timestamp="20230405 14:04:53.566" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:53.559" endtime="20230405 14:04:53.567"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_user_button}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_user_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:04:53.570" level="INFO">Clicking element '//button[@id="UserBtn"]'.</msg>
+<msg timestamp="20230405 14:04:53.574" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.575" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:53.569" endtime="20230405 14:04:53.576"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_user_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:04:58.590" level="INFO">Clicking element '//button[@id="UserBtn"]'.</msg>
+<msg timestamp="20230405 14:04:58.590" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:58.595" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:58.590" endtime="20230405 14:04:58.595"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_user_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:03.607" level="INFO">Clicking element '//button[@id="UserBtn"]'.</msg>
+<msg timestamp="20230405 14:05:03.610" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:03.610" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:03.606" endtime="20230405 14:05:03.615"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_user_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:08.628" level="INFO">Clicking element '//button[@id="UserBtn"]'.</msg>
+<msg timestamp="20230405 14:05:08.636" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:08.637" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:08.627" endtime="20230405 14:05:08.638"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_user_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:13.650" level="INFO">Clicking element '//button[@id="UserBtn"]'.</msg>
+<msg timestamp="20230405 14:05:13.650" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:13.656" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:13.650" endtime="20230405 14:05:13.657"/>
+</kw>
+<msg timestamp="20230405 14:05:13.657" level="FAIL">Keyword 'Click Element' failed after retrying 5 times. The last error was: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:04:53.568" endtime="20230405 14:05:13.698"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>${GLOBAL_RETRY}</arg>
+<arg>${GLOBAL_RETRY_INTERVAL}</arg>
+<arg>Click Element</arg>
+<arg>${el_signout_link}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_signout_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:13.698" level="INFO">Clicking element '//a[@data-dyn-controlname="SignOut"]'.</msg>
+<msg timestamp="20230405 14:05:13.698" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:13.705" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:13.698" endtime="20230405 14:05:13.706"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_signout_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:18.710" level="INFO">Clicking element '//a[@data-dyn-controlname="SignOut"]'.</msg>
+<msg timestamp="20230405 14:05:18.718" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:18.719" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:18.710" endtime="20230405 14:05:18.720"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_signout_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:23.723" level="INFO">Clicking element '//a[@data-dyn-controlname="SignOut"]'.</msg>
+<msg timestamp="20230405 14:05:23.723" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:23.727" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:23.722" endtime="20230405 14:05:23.728"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_signout_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:28.730" level="INFO">Clicking element '//a[@data-dyn-controlname="SignOut"]'.</msg>
+<msg timestamp="20230405 14:05:28.730" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:28.737" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:28.730" endtime="20230405 14:05:28.738"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${el_signout_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230405 14:05:33.742" level="INFO">Clicking element '//a[@data-dyn-controlname="SignOut"]'.</msg>
+<msg timestamp="20230405 14:05:33.745" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:33.748" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:33.742" endtime="20230405 14:05:33.749"/>
+</kw>
+<msg timestamp="20230405 14:05:33.749" level="FAIL">Keyword 'Click Element' failed after retrying 5 times. The last error was: NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<status status="FAIL" starttime="20230405 14:05:13.698" endtime="20230405 14:05:33.750"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>${SHORT_WAIT}</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230405 14:05:35.754" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230405 14:05:33.750" endtime="20230405 14:05:35.757"/>
+</kw>
+<kw name="Close All Browsers" library="RPA.Browser.Selenium">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230405 14:05:35.757" endtime="20230405 14:05:42.038"/>
+</kw>
+<status status="FAIL" starttime="20230405 14:04:53.557" endtime="20230405 14:05:42.038">Several failures occurred:
+
+1) NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+    [ Message content over the limit has been removed. ]
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]</status>
+</kw>
+<doc>Template robot main suite.</doc>
+<status status="FAIL" starttime="20230405 14:03:24.912" endtime="20230405 14:05:42.038">Suite teardown failed:
+Several failures occurred:
+
+1) NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+    [ Message content over the limit has been removed. ]
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230405 14:04:05.748" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:30.906" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.119" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.565" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:53.574" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:04:58.590" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:03.610" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:08.636" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:13.650" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:13.698" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:18.718" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:23.723" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:28.730" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+<msg timestamp="20230405 14:05:33.745" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=111.0.5563.147)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00FEDCE3]
+	(No symbol) [0x00F839D1]
+	(No symbol) [0x00E94DA8]
+	(No symbol) [0x00E7D0D3]
+	(No symbol) [0x00EDEA8B]
+	(No symbol) [0x00EED093]
+	(No symbol) [0x00EDACC6]
+	(No symbol) [0x00EB6F68]
+	(No symbol) [0x00EB80CD]
+	GetHandleVerifier [0x01263832+2506274]
+	GetHandleVerifier [0x01299794+2727300]
+	GetHandleVerifier [0x0129E36C+2746716]
+	GetHandleVerifier [0x01096690+617600]
+	(No symbol) [0x00F8C712]
+	(No symbol) [0x00F91FF8]
+	(No symbol) [0x00F920DB]
+	(No symbol) [0x00F9C63B]
+	BaseThreadInitThunk [0x76437D69+25]
+	RtlInitializeExceptionChain [0x7777B74B+107]
+	RtlClearBits [0x7777B6CF+191]
+</msg>
+</errors>
+</robot>
